@@ -5,3 +5,6 @@
 
 - 1일차 기록
     - [TestCode란?](https://github.com/ssjjaa-algo/TestCode-/blob/main/recordStudy/1일차.md)
+ 
+- 2일차 기록
+    - [TDD](https://github.com/ssjjaa-algo/TestCode-/blob/main/recordStudy/2%EC%9D%BC%EC%B0%A8.md)
