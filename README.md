@@ -8,3 +8,6 @@
  
 - 2일차 기록
     - [TDD](https://github.com/ssjjaa-algo/TestCode-/blob/main/recordStudy/2%EC%9D%BC%EC%B0%A8.md)
+ 
+- 3일차 기록
+    - [BDD, DisplayName, Given / When / Then](https://github.com/ssjjaa-algo/TestCode-/blob/main/recordStudy/3%EC%9D%BC%EC%B0%A8.md)
