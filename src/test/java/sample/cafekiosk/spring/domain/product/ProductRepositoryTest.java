@@ -3,6 +3,7 @@ package sample.cafekiosk.spring.domain.product;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
@@ -15,7 +16,7 @@ import static sample.cafekiosk.spring.domain.product.ProductSellingStatus.*;
 import static sample.cafekiosk.spring.domain.product.ProductType.HANDMADE;
 
 @ActiveProfiles("test")
-@SpringBootTest
+@DataJpaTest
 // @DataJpaTest SpringbootTest보다 가볍고, Jpa 관련 테스트에 필요한 빈만 가져온다.
 public class ProductRepositoryTest {
 
