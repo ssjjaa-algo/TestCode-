@@ -1,4 +1,4 @@
-package sample.cafekiosk.spring.api.controller;
+package sample.cafekiosk.spring.api.controller.product;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
