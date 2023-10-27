@@ -11,3 +11,6 @@
  
 - 3일차 기록
     - [BDD, DisplayName, Given / When / Then](https://github.com/ssjjaa-algo/TestCode-/blob/main/recordStudy/3%EC%9D%BC%EC%B0%A8.md)
+ 
+- 4일차 기록
+    - [Layered Architecture, Persistence & Business layer 테스트](https://github.com/ssjjaa-algo/TestCode-/blob/main/recordStudy/4%EC%9D%BC%EC%B0%A8.md)
