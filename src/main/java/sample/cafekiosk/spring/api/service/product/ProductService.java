@@ -32,7 +32,6 @@ public class ProductService {
         Product product = request.toEntity(nextProductNumber);
         Product savedProduct = productRepository.save(product);
 
-
         return ProductResponse.of(savedProduct);
     }
 
