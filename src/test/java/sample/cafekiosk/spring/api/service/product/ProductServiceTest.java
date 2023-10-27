@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
 import sample.cafekiosk.spring.api.controller.product.dto.request.ProductCreateRequest;
 import sample.cafekiosk.spring.api.service.product.response.ProductResponse;
@@ -19,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static sample.cafekiosk.spring.domain.product.ProductSellingStatus.*;
 import static sample.cafekiosk.spring.domain.product.ProductType.HANDMADE;
 
+@ActiveProfiles("test")
 @SpringBootTest
 @Transactional
 class ProductServiceTest {
@@ -50,6 +52,26 @@ class ProductServiceTest {
         assertThat(productResponse)
                 .extracting("productNumber","type","sellingStatus","name","price")
                 .contains("002",HANDMADE,SELLING,"카푸치노",5000);
+    }
+
+    @DisplayName("신규 상품을 등록할 때 상품이 하나도 없으면 번호는 001이다.")
+    @Test
+    void createProductWhenProductsIsEmpty() {
+        // given
+        ProductCreateRequest request = ProductCreateRequest.builder()
+                .type(HANDMADE)
+                .sellingStatus(SELLING)
+                .name("카푸치노")
+                .price(5000)
+                .build();
+
+        // when
+        ProductResponse productResponse = productService.createProduct(request);
+
+        // then
+        assertThat(productResponse)
+                .extracting("productNumber","type","sellingStatus","name","price")
+                .contains("001",HANDMADE,SELLING,"카푸치노",5000);
     }
 
     private Product createProduct(String productNumber, ProductType productType, ProductSellingStatus productSellingStatus, String name, int price) {
