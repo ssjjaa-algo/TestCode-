@@ -3,6 +3,7 @@ package sample.cafekiosk.spring.api.service.order;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import sample.cafekiosk.spring.api.controller.order.request.OrderCreateRequest;
+import sample.cafekiosk.spring.api.service.order.request.OrderServiceCreateSRequest;
 import sample.cafekiosk.spring.domain.order.Order;
 import sample.cafekiosk.spring.domain.order.OrderRepository;
 import sample.cafekiosk.spring.domain.order.response.OrderResponse;
@@ -34,7 +35,7 @@ public class OrderService {
      * 동시성 문제 우려
      * optimistic lock / pessimistic lock / ..
      */
-    public OrderResponse createOrder(OrderCreateRequest request, LocalDateTime registeredDateTime) {
+    public OrderResponse createOrder(OrderServiceCreateSRequest request, LocalDateTime registeredDateTime) {
 
         List<String> productNumbers = request.getProductNumbers();
         List<Product> products = findProductBy(productNumbers);
