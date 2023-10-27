@@ -25,15 +25,27 @@ public class ProductService {
                 .collect(Collectors.toList());
     }
 
-    public void createProduct(ProductCreateRequest request) {
+    public ProductResponse createProduct(ProductCreateRequest request) {
 
+        String nextProductNumber = createNextProductNumber();
+
+        return ProductResponse.builder()
+                .productNumber(nextProductNumber)
+                .type(request.getType())
+                .sellingStatus(request.getSellingStatus())
+                .name(request.getName())
+                .price(request.getPrice())
+                .build();
+    }
+
+    private String createNextProductNumber() {
         String latestProductNumber = productRepository.findLatestProduct();
 
-        //productNumber
-        // 001 002 003 004
-        // DB에서 마지막 저장된 product의 상품번호 + 1
+        int latestProductNumberInt = Integer.parseInt(latestProductNumber);
+        int nextProductNumberInt = latestProductNumberInt + 1;
 
 
+        return String.format("%03d",nextProductNumberInt);
 
     }
 }
